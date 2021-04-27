@@ -1,7 +1,6 @@
 
 #%%
 import datetime
-import pyspark as ps
 # Matplotlib
 import matplotlib.pyplot as plt
 
@@ -9,9 +8,6 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 # Numpy and Pandas
 import numpy as np
-import pandas as pd
-# Ohter import
-import sys
 
 from sklearn.preprocessing import StandardScaler
 
