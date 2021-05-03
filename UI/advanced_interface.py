@@ -6,9 +6,9 @@ import pandas as pd
 import tkinter as tk  
 from tkinter import filedialog  
 from PIL import Image
-import os 
+import os
 
-image = Image.open('UI\grape.jpg')
+image = Image.open('grape.jpg')
 
 st.title('Botrus')
 st.image(image, caption='Using peer to peer technology to train large models',width=100) 
@@ -25,19 +25,27 @@ option = st.sidebar.selectbox(
     'Choose the pool you want to work with',
      table['Pools'])
 
+st.header('Authentication :')
+
+password = st.text_input("Pool password", "")
+
 st.header('Slaves selection :')
+
 
 peers = pd.DataFrame({
   'workers': ['Worker 1','Worker 2','Worker 3','Worker 4'],
+  'nicknames':['Alice','Bob','Charlie','Diana']
 })
-workers_selected = st.multiselect('Which workers do you want to exploit?', peers['workers'])
+st.write(peers)
+workers_selected = st.multiselect('Which workers do you want to exploit?', peers['nicknames'])
 
+if workers_selected != []:
 
-latest_iteration = st.empty()
-bar = st.progress(0)
+    st.header('Cluster Creation')
 
-array = [0.0]
+    bar = st.progress(0)
+    array = [0.0]
 
-if st.button('Create cluster'):   
-    bar.progress(100) 
-    st.write("Cluster created !")
+    if st.button('Create cluster'):   
+        bar.progress(100) 
+        st.write("Cluster created !")
